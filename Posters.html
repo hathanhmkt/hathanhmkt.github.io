@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/svg+xml" href="/Abhi-Favicon.svg">
+    <link rel="shortcut svg+xml" href="/Abhi-Favicon.svg">
+    <title>Poster Designs</title>
+    <style>
+        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+:root {
+    --bg-color: #080808;
+    --second-bg-color: #131313;
+    --text-color: white;
+    --main-color: #B026FF;
+}
+
+html{
+    font-size: 60%;
+    overflow-x: hidden;
+}
+body{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+h2 {
+    font-size: 4rem;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+section {
+    min-height: 100vh;
+    padding: 10rem 12% 10rem;
+}
+.poster{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15rem;
+}
+.psoter-content{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    text-align: left;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+span{
+    color: var(--main-color);
+}
+.logo span{
+    color: var(--main-color);
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: var(--second-bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 350px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+    border: 3px solid rgba(238, 238, 238, 0.2);
+    border-radius: 2rem;
+    gap: 1.5rem;
+    color: white;
+}
+
+.card img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.card h3 {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.card:hover{
+    border: 3px solid var(--main-color);
+    transform: translateY(-10px)scale(1.03);
+    box-shadow: 0 0 50px var(--main-color);
+}
+
+.live-demo-btn {
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+.live-demo-btn:hover {
+    background-color: #8e1ccc;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 4rem 12% 4rem;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+}
+.logo{
+    font-size: 3rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.logo:hover{
+    transform: scale(1.1);
+}
+.logo span{
+    text-shadow: 0 0 25px var(--main-color);
+}
+.navbar a{
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+.navbar a:hover,
+.navbar a.active{
+    color: var(--main-color);
+    border-bottom: 3px solid var(--main-color);
+}
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--main-color);
+    display: none;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-content {
+    margin: auto;
+    margin-top: 40px;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.footer{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 40px 0;
+    background-color: var(--second-bg-color);
+}
+.footer .social{
+    text-align: center;
+    padding-bottom: 25px;
+    color: var(--main-color);
+}
+.footer .social a{
+    font-size: 25px;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: 0.3s ease-in-out;
+}
+.footer .social a:hover{
+    transform: scale(1.2)translateY(-10px);
+    background-color: var(--main-color);
+    color: black;
+    box-shadow: 0 0 25px var(--main-color);
+}
+.footer ul{
+    margin-top: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: center;
+}
+.footer ul li a{
+    color: white;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease-in-out;
+}
+.footer ul li a:hover{
+    border-bottom: 3px solid var(--main-color);
+}
+.footer ul li{
+    display: inline-block;
+    padding: 0 15px;
+}
+.footer .copyright{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+}
+@media(max-width:768px){
+    #menu-icon{
+        display: block;
+    }
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(20px);
+        border-bottom-left-radius: 2rem;
+        border-bottom-right-radius: 2rem;
+        border-left: 2px solid var(--main-color);
+        border-bottom: 2px solid var(--main-color);
+        border-right: 2px solid var(--main-color);
+        flex-direction: column;
+        display: none;
+        text-align: center;
+        padding: 2rem 0;
+    }
+    .navbar a {
+        margin: 1rem 0;
+        font-size: 2rem;
+    }
+    .navbar.active {
+        display: flex;
+    }
+}
+@media(max-width:480px){
+    #menu-icon{
+        display: block;
+    }
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(20px);
+        border-bottom-left-radius: 2rem;
+        border-bottom-right-radius: 2rem;
+        border-left: 2px solid var(--main-color);
+        border-bottom: 2px solid var(--main-color);
+        border-right: 2px solid var(--main-color);
+        flex-direction: column;
+        display: none;
+        text-align: center;
+        padding: 2rem 0;
+    }
+    .navbar a {
+        margin: 1rem 0;
+        font-size: 2rem;
+    }
+    .navbar.active {
+        display: flex;
+    }
+    
+}
+
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="/index.html" class="logo">Abhishek
+        <span>Nadar</span></a>
+    
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="/index.html">Home</a>
+            <a href="/websites.html">Live Websites</a>
+            <a href="/Posters.html" class="active">Posters</a>
+            <a href="/PDF&PPT.html">PDF & PPT</a>
+        </nav>
+    </header>
+
+    <section class="poster" id="poster">
+    <div class="poster-content">
+        <h2>Poster Designs</h2>
+        <div class="card-container">
+            <div class="card poster-card">
+                <img src="/Poster 1.png" alt="Poster Design 1">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 2.png" alt="Poster Design 2">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 3.png" alt="Poster Design 3">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 4.png" alt="Poster Design 4">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 5.png" alt="Poster Design 5">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 6.png" alt="Poster Design 6">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 7.png" alt="Poster Design 7">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 8.png" alt="Poster Design 8">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 9.png" alt="Poster Design 9">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 10.png" alt="Poster Design 10">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 11.jpg" alt="Poster Design 11">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 12.png" alt="Poster Design 12">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 13.png" alt="Poster Design 13">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 14.png" alt="Poster Design 14">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 15.png" alt="Poster Design 15">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 16.png" alt="Poster Design 16">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 18.png" alt="Poster Design 18">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 19.png" alt="Poster Design 19">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 20.png" alt="Poster Design 20">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 21.png" alt="Poster Design 21">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 22.png" alt="Poster Design 22">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 23.png" alt="Poster Design 23">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 24.png" alt="Poster Design 24">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 25.png" alt="Poster Design 25">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 26.png" alt="Poster Design 26">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 27.png" alt="Poster Design 27">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 28.png" alt="Poster Design 28">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 29.png" alt="Poster Design 29">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 30.png" alt="Poster Design 30">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 31.png" alt="Poster Design 31">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 32.png" alt="Poster Design 32">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 33.png" alt="Poster Design 33">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 34.png" alt="Poster Design 34">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 35.png" alt="Poster Design 35">
+            </div>
+            <div class="card poster-card">
+                <img src="/Poster 36.png" alt="Poster Design 36">
+            </div>
+            
+        </div> 
+        
+        <div id="lightbox" class="lightbox">
+            <span class="close">&times;</span>
+            <img class="lightbox-content" id="lightbox-image">
+        </div>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const close = document.querySelector('.close');
+    
+            document.querySelectorAll('.poster-card img, .visiting-card img').forEach(image => {
+                image.addEventListener('click', () => {
+                    lightbox.style.display = 'block';
+                    lightboxImage.src = image.src;
+                });
+            });
+    
+            close.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+            });
+    
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                 lightbox.style.display = 'none';
+                }
+            });
+            });
+    
+        </script>
+
+    </div>
+    </section>
+
+    <footer class="footer">
+        <div class="social">
+            <a href="https://www.linkedin.com/in/abhishek-nadar/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://www.instagram.com/___heavenly_demon___/profilecard/?igsh=MXZ0cnJtN3ZpcGFsNA=="><i class='bx bxl-instagram-alt' ></i></a>
+            <a href="https://wa.me/00971525031087" target="_blank"><i class='bx bxl-whatsapp' ></i></a>
+        </div>
+        
+        <ul class="list">
+            <li>
+                <a href="/index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="/websites.html">Live Websites</a>
+            </li>
+
+            <li>
+                <a href="/Posters.html" class="active">Posters</a>
+            </li>
+
+            <li>
+                <a href="/PDF&PPT.html">PDF & PPT</a>
+            </li>
+
+        </ul>
+
+        <p class="copyright">
+            © Abhishek Nadar | All Rights Preserved
+        </p>
+
+    </footer>
+    
+    <script src="/js/script.js"></script>
+</body>
+</html>
